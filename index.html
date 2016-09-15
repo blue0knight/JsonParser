@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Get json data from Stellar Bio Tech</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+    </script>
+  </head>
+  
+  <body>
+    <script>
+      $.ajax({
+       dataType: 'json',
+       url: 'http://www.stellarbiotechnologies.com/media/press-releases/json',
+       data: 'get',
+       cache: false,
+       success: function (data) {
+
+         $(data.news).each(function(index, value){
+            document.write('Date: ' + '<span style="font-style: italic">' +value.published + '</span>' + "<br>");
+            document.write('Title: ' + value.title + "<br><br>");
+         });
+       }
+     });
+    </script>
+  </body>
+
+</html>
